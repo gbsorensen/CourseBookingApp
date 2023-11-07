@@ -71,9 +71,10 @@ const updateCourse = async (req, res) => {
     const { id } = req.params
 
     try {
-        const course = await Course.findOneAndUpdate({_id: id}, {
-        ...req.body
-    })
+        const course = await Course.findOneAndUpdate(
+            {_id: id}, 
+            {...req.body},
+            {new: true, runValidators: true});
 
     if(!course){
         return res.status(404).json({error: 'No course found'})

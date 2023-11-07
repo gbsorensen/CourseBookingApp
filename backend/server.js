@@ -18,6 +18,7 @@ app.use((req, res, next)=> {
 
 // Routes
 app.use("/api/courses", require("./src/routes/courseRoute"));
+app.use("/api/users", require("./src/routes/userRoute"));
 
 mongoose
   .connect(process.env.MONGO_URI)
